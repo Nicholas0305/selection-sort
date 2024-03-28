@@ -1,5 +1,23 @@
 function selectionSort(arr) {
-  // type your code here
+  const arrayLength = arr.length;
+  for (let currentIndex = 0; currentIndex < arrayLength - 1; currentIndex++) {
+    let minIndex = currentIndex;
+    for (
+      let nextIndex = currentIndex + 1;
+      nextIndex < arrayLength;
+      nextIndex++
+    ) {
+      if (arr[nextIndex] < arr[minIndex]) {
+        minIndex = nextIndex;
+      }
+    }
+    if (minIndex !== currentIndex) {
+      const temp = arr[currentIndex];
+      arr[currentIndex] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+  }
+  return arr;
 }
 
 if (require.main === module) {
